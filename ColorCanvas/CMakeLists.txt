@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 3.8)
 
-project(DragEdit VERSION 0.0.1 LANGUAGES CXX)
+project(ColorCanvas VERSION 0.0.1 LANGUAGES CXX)
 
-set(TARGET_NAME DragEdit)
+set(TARGET_NAME color_canvas)
 
 #___________________ Macro for Plugin __________________________________________________
 add_definitions(-DQT_PLUGIN)
@@ -20,9 +20,9 @@ set(CMAKE_DEBUG_POSTFIX "d")
 
 file(GLOB_RECURSE HEADER_FILES "inc/*.h" "inc/*.hpp")
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.c")
-file(GLOB_RECURSE UI_FILES  "*.ui")
-file(GLOB_RECURSE QRC_FILES "*.qrc")
-
+file(GLOB_RECURSE UI_FILES		"*.ui")
+file(GLOB_RECURSE QRC_FILES		"*.qrc")
+set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
 #___________________ Third Party Dependencies __________________________________________
 find_package(Qt6 COMPONENTS				# QT Dependencies
 	Gui Core Widgets  UiPlugin
@@ -30,9 +30,7 @@ find_package(Qt6 COMPONENTS				# QT Dependencies
 )
 
 #___________________ Display _____________________________________________________________
-message(STATUS "SOURCE FILES - ${SOURCE_FILES}")
-message(STATUS "HEADER_FILES - ${HEADER_FILES}")
-message(STATUS "RCC_FILES    - ${QRC_FILES}")
+
 
 #___________________ Generate Target And Properties ______________________________________
 add_library (${TARGET_NAME}  SHARED ${UI_FILES} ${SOURCE_FILES} ${HEADER_FILES} ${QRC_FILES})

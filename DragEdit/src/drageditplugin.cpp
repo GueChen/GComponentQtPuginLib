@@ -73,5 +73,5 @@ QString DragEditPlugin::domXml() const
 
 QString DragEditPlugin::includeFile() const
 {
-    return "customplugin/dragedit.h";
+    return "custom\\dragedit.h";
 }

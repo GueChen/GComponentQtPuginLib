@@ -24,6 +24,9 @@ public:
     inline float GetValue()    const          { return value_; }
     inline void  SetValue(float val)          { value_ = val; }
 
+    inline float GetStep()     const          { return step_; }
+    inline void  SetStep(float step)          { step_= step; }
+
 protected:
     //void enterEvent       (QEnterEvent* event) override;
     //void leaveEvent       (QEvent*      event) override;

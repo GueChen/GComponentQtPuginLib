@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="color">color_convas.png</file>
+    </qresource>
+</RCC>

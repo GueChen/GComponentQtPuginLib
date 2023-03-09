@@ -11,7 +11,6 @@ set(TARGET_NAME QtPlayground)
 
 
 #___________________ QT Proj Setting ___________________________________________________
-set(QT_PLUGIN_PATH ${QT_DIR}/plugins/designer)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -59,4 +58,6 @@ target_link_libraries(${TARGET_NAME} PUBLIC
 	Qt6::Gui
 	Qt6::UiPlugin
 	DragEdit
+	color_canvas
 )
+
