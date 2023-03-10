@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="cat">pictures/cat1.jpg</file>
+        <file alias="color canvas">pictures/color_convas.png</file>
+    </qresource>
+</RCC>

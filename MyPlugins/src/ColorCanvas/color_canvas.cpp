@@ -1,7 +1,6 @@
-#include "color_canvas.h"
+#include "ColorCanvas/color_canvas.h"
 
 #include "ui_color_display.h"
-
 
 #include <QtGui/QPixMap>
 #include <QtGui/QResizeEvent>
@@ -9,14 +8,13 @@
 #include <QtGui/QMouseEvent>
 
 #include <iostream>
+constexpr const unsigned int kRgbMask   =  0x00ffffffu;
+constexpr const unsigned int kAlphaMask =  0xff000000u;
 
 ColorCanvas::ColorCanvas(QWidget* parent, QColor color):
-	QLabel(parent),
-	color_(color),
+	QLabel(parent),	
 	display_ptr_(new Ui::DisplayColor)
-{
-	//setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-	
+{	
 	setAttribute(Qt::WA_Hover, true);
 	installEventFilter(this);
 
@@ -24,22 +22,45 @@ ColorCanvas::ColorCanvas(QWidget* parent, QColor color):
 
 	display_ptr_->setupUi(&frame_);
 
-	selector_.setCurrentColor(color_);
-	ColorChange(color_);
+	SetColor(color);
 
-	connect(&selector_, &QColorDialog::currentColorChanged, this, &ColorCanvas::ColorChange);
+	connect(&selector_, &QColorDialog::currentColorChanged, this, &ColorCanvas::SetRGB);	
+}
+
+ColorCanvas::~ColorCanvas() {
+	delete display_ptr_;
+}
+
+void ColorCanvas::SetColor(const QColor& color) {	
+	if (color != color_) {
+		color_ = color;
+		selector_.setCurrentColor(color_);
+		ColorChange(color_);
+		emit ColorChanged(color);
+	}
+}
+
+void ColorCanvas::SetRGB(const QColor& color) {
+	QRgb rgb = color.rgb();
+	if (rgb != color_.rgb()) {
+		color_.setRgba((rgb & kRgbMask) | 
+					   (color_.rgba() & kAlphaMask));
+		selector_.setCurrentColor(color_);
+		ColorChange(color_);
+		emit ColorChanged(color);
+	}
 }
 
 bool ColorCanvas::eventFilter(QObject* obj, QEvent* event) {
 	switch (event->type()) {
 	case QEvent::HoverEnter: {
-		QPoint pos = mapToGlobal(static_cast<QHoverEvent*>(event)->pos());
+		QPointF pos = mapToGlobal(static_cast<QHoverEvent*>(event)->position());
 		frame_.show();
 		frame_.setGeometry(pos.x() + 5, pos.y() + 10, 40, 40);
 		break;
 	}
 	case QEvent::HoverMove: {
-		QPoint pos = mapToGlobal(static_cast<QHoverEvent*>(event)->pos());
+		QPointF pos = mapToGlobal(static_cast<QHoverEvent*>(event)->position());
 		frame_.setGeometry(pos.x() + 5, pos.y() + 10, 40, 40);
 		break;
 	}

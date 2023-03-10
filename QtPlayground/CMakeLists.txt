@@ -24,7 +24,7 @@ file(GLOB_RECURSE QRC_FILES "*.qrc")
 
 #___________________ Third Party Dependencies __________________________________________
 find_package(Qt6 COMPONENTS				# QT Dependencies
-	Gui Core Widgets  UiPlugin
+	Gui Core Widgets  UiPlugin Designer
 	REQUIRED
 )
 
@@ -57,7 +57,7 @@ target_link_libraries(${TARGET_NAME} PUBLIC
 	Qt6::Widgets
 	Qt6::Gui
 	Qt6::UiPlugin
-	DragEdit
-	color_canvas
+	Qt6::Designer
+	GComponentQtPlugins
 )
 

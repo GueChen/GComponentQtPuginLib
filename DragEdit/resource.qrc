@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/icon">
-        <file alias="cat">cat1.jpg</file>
-    </qresource>
-</RCC>

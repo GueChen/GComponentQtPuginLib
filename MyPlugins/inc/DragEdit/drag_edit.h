@@ -9,8 +9,7 @@ class QDESIGNER_WIDGET_EXPORT DragEdit : public QLineEdit
     
     Q_PROPERTY(float min_limit READ GetMinLimit WRITE SetMinLimit MEMBER min_limit_)
     Q_PROPERTY(float max_limit READ GetMaxLimit WRITE SetMaxLimit MEMBER max_limit_)
-    Q_PROPERTY(float val       READ GetValue    WRITE SetValue    MEMBER value_)
-
+    Q_PROPERTY(float val       READ GetValue    WRITE SetValue    MEMBER value_ NOTIFY ValueChanged)
 
 public:
     explicit DragEdit(QWidget *parent = nullptr);
@@ -22,17 +21,18 @@ public:
     inline void  SetMaxLimit(float max_limit) { max_limit_ = max_limit; }
 
     inline float GetValue()    const          { return value_; }
-    inline void  SetValue(float val)          { value_ = val; }
+    void         SetValue(float val);
 
     inline float GetStep()     const          { return step_; }
     inline void  SetStep(float step)          { step_= step; }
 
 protected:
-    //void enterEvent       (QEnterEvent* event) override;
-    //void leaveEvent       (QEvent*      event) override;
     void mouseMoveEvent   (QMouseEvent* event) override;
     void mousePressEvent  (QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
+
+signals:
+    void ValueChanged(float val);
 
 private:
     float min_limit_ = 0.0f;

@@ -1,5 +1,5 @@
-#include "dragedit.h"
-#include "drageditplugin.h"
+#include "DragEdit/drag_edit.h"
+#include "DragEdit/drageditplugin.h"
 
 #include <QtCore/QtPlugin>
 
@@ -29,7 +29,7 @@ QWidget *DragEditPlugin::createWidget(QWidget *parent)
 
 QString DragEditPlugin::name() const
 {
-    return "drag_edit";
+    return "Drag Edit";
 }
 
 QString DragEditPlugin::group() const
@@ -59,7 +59,7 @@ bool DragEditPlugin::isContainer() const
 
 QString DragEditPlugin::domXml() const
 {
-    return "<widget class=\"DragEdit\" name=\"DragEdit\">\n"
+    return "<widget class=\"DragEdit\" name=\"drag_edit\">\n"
         " <property name=\"geometry\">\n"
         "  <rect>\n"
         "   <x>0</x>\n"
@@ -73,5 +73,5 @@ QString DragEditPlugin::domXml() const
 
 QString DragEditPlugin::includeFile() const
 {
-    return "custom\\dragedit.h";
+    return "custom/drag_edit.h";
 }

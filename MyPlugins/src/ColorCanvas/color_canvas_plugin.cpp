@@ -1,5 +1,5 @@
-#include "color_canvas.h"
-#include "color_canvas_plugin.h"
+#include "ColorCanvas/color_canvas.h"
+#include "ColorCanvas/color_canvas_plugin.h"
 
 #include <QtCore/QtPlugin>
 
@@ -34,22 +34,22 @@ QString ColorCanvasPlugin::name() const
 
 QString ColorCanvasPlugin::group() const
 {
-    return "My Plugins";
+    return QString("My Plugins");
 }
 
 QIcon ColorCanvasPlugin::icon() const
 {
-    return QIcon(":/icon/color");
+    return QIcon(":/icon/color canvas");
 }
 
 QString ColorCanvasPlugin::toolTip() const
 {
-    return "an editor to adjust and display color";
+    return QString("an editor to adjust and display color");
 }
 
 QString ColorCanvasPlugin::whatsThis() const
 {
-    return "";
+    return QString("a color diplay modeule could select and choose color");
 }
 
 bool ColorCanvasPlugin::isContainer() const
@@ -59,7 +59,7 @@ bool ColorCanvasPlugin::isContainer() const
 
 QString ColorCanvasPlugin::domXml() const
 {
-    return "<widget class=\"ColorCanvas\" name=\"ColorCanvas\">\n"
+    return "<widget class=\"ColorCanvas\" name=\"color_canvas\">\n"
         " <property name=\"geometry\">\n"
         "  <rect>\n"
         "   <x>0</x>\n"
@@ -73,5 +73,5 @@ QString ColorCanvasPlugin::domXml() const
 
 QString ColorCanvasPlugin::includeFile() const
 {
-    return "custom\\color_canvas.h";
+    return "custom/color_canvas.h";
 }

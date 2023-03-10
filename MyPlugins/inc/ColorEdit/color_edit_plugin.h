@@ -2,14 +2,14 @@
 
 #include <QtUiPlugin/QDesignerCustomWidgetInterface>
 
-class DragEditPlugin : public QObject, public QDesignerCustomWidgetInterface
+class ColorEditPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface" FILE "drageditplugin.json")
+    //Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface" FILE "color_edit.json")
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 
 public:
-    DragEditPlugin(QObject *parent = nullptr);
+    ColorEditPlugin(QObject *parent = nullptr);
 
     bool isContainer() const;
     bool isInitialized() const;

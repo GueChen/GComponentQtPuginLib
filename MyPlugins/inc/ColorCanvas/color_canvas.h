@@ -16,21 +16,25 @@ class QDESIGNER_WIDGET_EXPORT ColorCanvas : public QLabel
 {
     Q_OBJECT
 
-    Q_PROPERTY(QColor color MEMBER color_ NOTIFY ColorChanged)
+    Q_PROPERTY(QColor color MEMBER color_ NOTIFY ColorChanged READ GetColor WRITE SetColor)
 public:
     explicit ColorCanvas(QWidget *parent = nullptr, QColor color = Qt::blue);
+    ~ColorCanvas();
 
+    inline QColor GetColor() const             { return color_; }
+    void          SetColor(const QColor& color);
+    void          SetRGB(const QColor& color);
 
 protected:
-    void mouseReleaseEvent(QMouseEvent* event)    override;
-    void resizeEvent(QResizeEvent* event)         override;
-    bool eventFilter(QObject* obj, QEvent* event) override;
+    void          mouseReleaseEvent(QMouseEvent* event)    override;
+    void          resizeEvent(QResizeEvent* event)         override;
+    bool          eventFilter(QObject* obj, QEvent* event) override;
 
-private slots:
-    void ColorChange(const QColor& color);
+private:
+    void          ColorChange(const QColor& color);
 
 signals:
-    void ColorChanged(const QColor& color);
+    void          ColorChanged(const QColor& color);
 
 private:
     QColor            color_;
