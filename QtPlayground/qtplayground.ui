@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>626</width>
-    <height>120</height>
+    <width>596</width>
+    <height>119</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,8 +116,8 @@ background-color: rgb(0, 0, 150);</string>
    <widget class="ColorCanvas" name="color_canvas" native="true">
     <property name="geometry">
      <rect>
-      <x>165</x>
-      <y>5</y>
+      <x>180</x>
+      <y>10</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -144,7 +144,7 @@ background-color: rgb(0, 0, 150);</string>
    <widget class="ColorEdit" name="color_edit" native="true">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>250</x>
       <y>0</y>
       <width>300</width>
       <height>65</height>
@@ -157,7 +157,7 @@ background-color: rgb(0, 0, 150);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>626</width>
+     <width>596</width>
      <height>22</height>
     </rect>
    </property>

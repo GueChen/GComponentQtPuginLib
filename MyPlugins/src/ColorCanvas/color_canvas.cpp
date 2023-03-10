@@ -8,8 +8,8 @@
 #include <QtGui/QMouseEvent>
 
 #include <iostream>
-constexpr const unsigned int kRgbMask   =  0x00ffffffu;
-constexpr const unsigned int kAlphaMask =  0xff000000u;
+constexpr const unsigned int kRgbMask   =  0x00ffffff;
+constexpr const unsigned int kAlphaMask =  0xff000000;
 
 ColorCanvas::ColorCanvas(QWidget* parent, QColor color):
 	QLabel(parent),	
@@ -43,11 +43,10 @@ void ColorCanvas::SetColor(const QColor& color) {
 void ColorCanvas::SetRGB(const QColor& color) {
 	QRgb rgb = color.rgb();
 	if (rgb != color_.rgb()) {
-		color_.setRgba((rgb & kRgbMask) | 
-					   (color_.rgba() & kAlphaMask));
+		color_.setRgba((rgb & kRgbMask) | (color_.rgba() & kAlphaMask));
 		selector_.setCurrentColor(color_);
 		ColorChange(color_);
-		emit ColorChanged(color);
+		emit ColorChanged(color_);
 	}
 }
 
