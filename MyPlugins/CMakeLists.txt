@@ -36,7 +36,12 @@ add_library (${TARGET_NAME}  SHARED ${UI_FILES} ${SOURCE_FILES} ${HEADER_FILES} 
 #___________________ Copy File to Bin _______________________
 set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 set_property(TARGET ${TARGET_NAME} PROPERTY LINKER_LANGUAGE CXX)
-
+#set_target_properties(${TARGET_NAME} 
+#					  PROPERTIES LIBRARY_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
+if(GSimulatorEditor)
+set_target_properties(${TARGET_NAME} 
+					  PROPERTIES RUNTIME_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
+endif()
 #___________________ Linking Libraries ______________________
 target_link_libraries(${TARGET_NAME} PUBLIC 
 	Qt6::Core
@@ -47,6 +52,12 @@ target_link_libraries(${TARGET_NAME} PUBLIC
 )
 
 include_directories(${TARGET_NAME} inc)
+
+target_include_directories(
+	${TARGET_NAME} 
+	PUBLIC
+	"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/inc"
+)
 
 install(TARGETS ${TARGET_NAME} 
 		RUNTIME DESTINATION ${QT_DIR}/plugins/designer
