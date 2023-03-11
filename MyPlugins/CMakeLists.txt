@@ -38,9 +38,10 @@ set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 set_property(TARGET ${TARGET_NAME} PROPERTY LINKER_LANGUAGE CXX)
 #set_target_properties(${TARGET_NAME} 
 #					  PROPERTIES LIBRARY_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
-if(GSimulatorEditor)
-set_target_properties(${TARGET_NAME} 
-					  PROPERTIES RUNTIME_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
+if(TARGET GSimulatorEditor)
+	set_target_properties(${TARGET_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
+else()
+	message(STATUS "There is not a target Called \"GSimulatorEditor\"")
 endif()
 #___________________ Linking Libraries ______________________
 target_link_libraries(${TARGET_NAME} PUBLIC 
