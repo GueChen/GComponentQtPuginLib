@@ -1,6 +1,7 @@
 <RCC>
-    <qresource prefix="/icon">
-        <file alias="cat">pictures/cat1.jpg</file>
-        <file alias="color canvas">pictures/color_convas.png</file>
-    </qresource>
+  <qresource prefix="/icon">
+    <file alias="shader_icon">pictures/shader_item_icon.png</file>
+    <file alias="cat">pictures/cat1.jpg</file>
+    <file alias="color canvas">pictures/color_convas.png</file>
+  </qresource>
 </RCC>

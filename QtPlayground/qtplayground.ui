@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>596</width>
-    <height>119</height>
+    <width>685</width>
+    <height>438</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,13 +151,23 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
+   <widget class="GSelector" name="selector" native="true">
+    <property name="geometry">
+     <rect>
+      <x>39</x>
+      <y>140</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>596</width>
+     <width>685</width>
      <height>22</height>
     </rect>
    </property>
@@ -188,6 +198,11 @@ background-color: rgb(0, 0, 150);</string>
    <class>ColorEdit</class>
    <extends>QWidget</extends>
    <header>custom/color_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>GSelector</class>
+   <extends>QWidget</extends>
+   <header>custom/selector.h</header>
   </customwidget>
  </customwidgets>
  <resources>

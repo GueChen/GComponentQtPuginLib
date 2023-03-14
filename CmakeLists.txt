@@ -37,4 +37,5 @@ project ("Custom Qt Widget Plugin")
 
 # 包含子项目的路径 { 目录中有 CMakeLists.txt }
 # add_subdirectory ("relative sub path")
+add_subdirectory ("QtPlayground")
 add_subdirectory ("MyPlugins")

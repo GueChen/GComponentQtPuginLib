@@ -2,8 +2,6 @@
 
 #include "ui_color_edit.h"
 
-#include <iostream>
-
 ColorEdit::ColorEdit(QWidget* parent, QColor color):
 	QWidget(parent),
 	ui_ptr_(new Ui::ColorEdit)

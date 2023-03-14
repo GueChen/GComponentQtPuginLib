@@ -4,6 +4,7 @@
 #include "ColorCanvas/color_canvas_plugin.h"
 #include "ColorEdit/color_edit_plugin.h"
 #include "DragEdit/drageditplugin.h"
+#include "Selector/selector_plugin.h"
 
 #include <QtDesigner/QtDesigner>
 #include <QtCore/qplugin.h>

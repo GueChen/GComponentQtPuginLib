@@ -7,7 +7,6 @@
 #include <QtGui/QHoverEvent>
 #include <QtGui/QMouseEvent>
 
-#include <iostream>
 constexpr const unsigned int kRgbMask   =  0x00ffffff;
 constexpr const unsigned int kAlphaMask =  0xff000000;
 
