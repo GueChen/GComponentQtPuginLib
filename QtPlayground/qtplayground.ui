@@ -161,6 +161,62 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
+   <widget class="ClickedEdit" name="clicked_edit" native="true">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>150</y>
+      <width>50</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>230</y>
+      <width>211</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>141</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="title">
+      <string>GroupBox</string>
+     </property>
+     <widget class="ClickedEdit" name="clicked_edit_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>50</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -203,6 +259,11 @@ background-color: rgb(0, 0, 150);</string>
    <class>GSelector</class>
    <extends>QWidget</extends>
    <header>custom/selector.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ClickedEdit</class>
+   <extends>QWidget</extends>
+   <header>custom/clicked_edit.h</header>
   </customwidget>
  </customwidgets>
  <resources>

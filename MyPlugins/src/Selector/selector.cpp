@@ -37,8 +37,7 @@ GSelector::GSelector(QWidget* parent, const QString& value, const QStringList& v
 
 	dialog_ui_ptr_->setupUi(&list_dialog_);
 	
-	dialog_ui_ptr_->shader_list->setSelectionMode(QAbstractItemView::SingleSelection);	
-	dialog_ui_ptr_->shader_list->setCurrentRow(0);
+	dialog_ui_ptr_->shader_list->setSelectionMode(QAbstractItemView::SingleSelection);		
 	
 	connect(&list_dialog_, &QDialog::accepted, [this]() {
 		setText(dialog_ui_ptr_->shader_list->selectedItems().front()->text());
@@ -51,6 +50,7 @@ GSelector::GSelector(QWidget* parent, const QString& value, const QStringList& v
 	});
 
 	AddItems(values);
+	SetCurrent(value);
 }
 
 GSelector::~GSelector() = default;

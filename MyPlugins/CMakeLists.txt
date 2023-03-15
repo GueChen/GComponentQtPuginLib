@@ -20,7 +20,13 @@ file(GLOB_RECURSE HEADER_FILES "inc/*.h" "inc/*.hpp")
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.c")
 file(GLOB_RECURSE UI_FILES	   "ui/*.ui")
 file(GLOB_RECURSE QRC_FILES	   "resources/*.qrc")
+
+#____________________ Keep File Path Structrue ________________________________________
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES} ${UI_FILES} ${QRC_FILES})
+
+#____________________
 set(CMAKE_AUTOUIC_SEARCH_PATHS ui)
+
 #___________________ Third Party Dependencies __________________________________________
 find_package(Qt6 COMPONENTS				# QT Dependencies
 	Gui Core Widgets  UiPlugin Designer
@@ -36,7 +42,7 @@ add_library (${TARGET_NAME}  SHARED ${UI_FILES} ${SOURCE_FILES} ${HEADER_FILES} 
 #___________________ Copy File to Bin _______________________
 set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
 set_property(TARGET ${TARGET_NAME} PROPERTY LINKER_LANGUAGE CXX)
-#set_target_properties(${TARGET_NAME} 
+#set_target_properties(${TARGET_NAME}
 #					  PROPERTIES LIBRARY_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
 if(TARGET GSimulatorEditor)
 	message(STATUS "Qt widgets plugin target -- GSimulator")

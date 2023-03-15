@@ -5,6 +5,7 @@
 #include "ColorEdit/color_edit_plugin.h"
 #include "DragEdit/drageditplugin.h"
 #include "Selector/selector_plugin.h"
+#include "ClickedEdit/clicked_edit_plugin.h"
 
 #include <QtDesigner/QtDesigner>
 #include <QtCore/qplugin.h>
