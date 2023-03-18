@@ -29,7 +29,7 @@ QWidget* ColorEditPlugin::createWidget(QWidget* parent)
 
 QString ColorEditPlugin::name() const
 {
-    return "Color Edit";
+    return "ColorEdit";
 }
 
 QString ColorEditPlugin::group() const

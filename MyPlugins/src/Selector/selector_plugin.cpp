@@ -29,7 +29,7 @@ QWidget* GSelectorPlugin::createWidget(QWidget* parent)
 
 QString GSelectorPlugin::name() const
 {
-    return "Selector";
+    return "GSelector";
 }
 
 QString GSelectorPlugin::group() const

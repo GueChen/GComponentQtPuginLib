@@ -6,6 +6,8 @@
 #include "DragEdit/drageditplugin.h"
 #include "Selector/selector_plugin.h"
 #include "ClickedEdit/clicked_edit_plugin.h"
+#include "AcrInstrument/acrinstrument_plugin.h"
+#include "SwitchControl/switch_control_plugin.h"
 
 #include <QtDesigner/QtDesigner>
 #include <QtCore/qplugin.h>

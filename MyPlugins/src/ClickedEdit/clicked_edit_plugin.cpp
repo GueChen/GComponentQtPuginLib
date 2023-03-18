@@ -29,7 +29,7 @@ QWidget* ClickedEditPlugin::createWidget(QWidget* parent)
 
 QString ClickedEditPlugin::name() const
 {
-    return "Clicked Edit";
+    return "ClickedEdit";
 }
 
 QString ClickedEditPlugin::group() const
