@@ -29,7 +29,7 @@ QWidget* ColorCanvasPlugin::createWidget(QWidget* parent)
 
 QString ColorCanvasPlugin::name() const
 {
-    return "Color Canvas";
+    return "ColorCanvas";
 }
 
 QString ColorCanvasPlugin::group() const

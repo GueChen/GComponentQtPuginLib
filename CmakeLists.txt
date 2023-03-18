@@ -1,5 +1,6 @@
 cmake_minimum_required (VERSION 3.8)
 
+
 # configure cmake toolchain => vcpkg
 if(DEFINED ENV{VCPKG})
 	message("vcpkg found install path = $ENV{VCPKG}")
@@ -36,5 +37,5 @@ project ("Custom Qt Widget Plugin")
 
 # 包含子项目的路径 { 目录中有 CMakeLists.txt }
 # add_subdirectory ("relative sub path")
-add_subdirectory ("MyPlugins")
 add_subdirectory ("QtPlayground")
+add_subdirectory ("MyPlugins")

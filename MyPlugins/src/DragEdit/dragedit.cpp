@@ -3,7 +3,6 @@
 #include <QtGui/QMouseEvent>
 
 #include <cmath>
-#include <iostream>
 
 DragEdit::DragEdit(QWidget *parent)
     : QLineEdit(parent)

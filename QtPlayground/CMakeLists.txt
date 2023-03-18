@@ -21,6 +21,8 @@ file(GLOB_RECURSE HEADER_FILES "*.h" "*.hpp")
 file(GLOB_RECURSE SOURCE_FILES "*.cpp" "*.c")
 file(GLOB_RECURSE UI_FILES  "*.ui")
 file(GLOB_RECURSE QRC_FILES "*.qrc")
+#____________________ Keep File Path Structrue ________________________________________
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${HEADER_FILES} ${SOURCE_FILES} ${UI_FILES} ${QRC_FILES})
 
 #___________________ Third Party Dependencies __________________________________________
 find_package(Qt6 COMPONENTS				# QT Dependencies

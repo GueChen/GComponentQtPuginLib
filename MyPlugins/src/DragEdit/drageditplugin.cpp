@@ -29,7 +29,7 @@ QWidget *DragEditPlugin::createWidget(QWidget *parent)
 
 QString DragEditPlugin::name() const
 {
-    return "Drag Edit";
+    return "DragEdit";
 }
 
 QString DragEditPlugin::group() const
