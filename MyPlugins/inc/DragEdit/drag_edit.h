@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QLineEdit>
+#include <QtGui/QDoubleValidator>
 #include <QtUiPlugin/QDesignerExportWidget>
 
 class QDESIGNER_WIDGET_EXPORT DragEdit : public QLineEdit
@@ -15,10 +16,16 @@ public:
     explicit DragEdit(QWidget *parent = nullptr);
 
     inline float GetMinLimit() const          { return min_limit_; }
-    inline void  SetMinLimit(float min_limit) { min_limit_ = min_limit; }
+    inline void  SetMinLimit(float min_limit) { 
+        min_limit_ = min_limit; 
+        validator_.setBottom(min_limit - 1e-5f);
+    }
 
     inline float GetMaxLimit() const          { return max_limit_; }
-    inline void  SetMaxLimit(float max_limit) { max_limit_ = max_limit; }
+    inline void  SetMaxLimit(float max_limit) { 
+        max_limit_ = max_limit; 
+        validator_.setTop(max_limit + 1e-5f);
+    }
 
     inline float GetValue()    const          { return value_; }
     void         SetValue(float val);
@@ -42,4 +49,6 @@ private:
 
     QPoint last_pos_  = QPoint(0, 0);
     bool   is_draged_ = false;
+
+    QDoubleValidator validator_;
 };

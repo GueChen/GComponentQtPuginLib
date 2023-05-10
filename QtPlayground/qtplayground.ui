@@ -113,7 +113,7 @@ background-color: rgb(0, 0, 150);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="ColorCanvas" name="color_canvas" native="true">
+   <widget class="ColorCanvas" name="color_canvas">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -141,7 +141,7 @@ background-color: rgb(0, 0, 150);</string>
      </size>
     </property>
    </widget>
-   <widget class="ColorEdit" name="color_edit" native="true">
+   <widget class="ColorEdit" name="color_edit">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -151,7 +151,7 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
-   <widget class="GSelector" name="selector" native="true">
+   <widget class="GSelector" name="selector">
     <property name="geometry">
      <rect>
       <x>39</x>
@@ -161,7 +161,7 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
-   <widget class="ClickedEdit" name="clicked_edit" native="true">
+   <widget class="ClickedEdit" name="clicked_edit">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -201,7 +201,7 @@ background-color: rgb(0, 0, 150);</string>
      <property name="title">
       <string>GroupBox</string>
      </property>
-     <widget class="ClickedEdit" name="clicked_edit_2" native="true">
+     <widget class="ClickedEdit" name="clicked_edit_2">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -216,6 +216,19 @@ color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="DragEdit" name="drag_edit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>220</y>
+      <width>50</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -241,14 +254,14 @@ color: rgb(255, 255, 255);</string>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
+   <class>ColorCanvas</class>
+   <extends>QLabel</extends>
+   <header>custom/color_canvas.h</header>
+  </customwidget>
+  <customwidget>
    <class>DragEdit</class>
    <extends>QLineEdit</extends>
    <header>custom/drag_edit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ColorCanvas</class>
-   <extends>QWidget</extends>
-   <header>custom/color_canvas.h</header>
   </customwidget>
   <customwidget>
    <class>ColorEdit</class>
@@ -257,12 +270,12 @@ color: rgb(255, 255, 255);</string>
   </customwidget>
   <customwidget>
    <class>GSelector</class>
-   <extends>QWidget</extends>
+   <extends>QLineEdit</extends>
    <header>custom/selector.h</header>
   </customwidget>
   <customwidget>
    <class>ClickedEdit</class>
-   <extends>QWidget</extends>
+   <extends>QLineEdit</extends>
    <header>custom/clicked_edit.h</header>
   </customwidget>
  </customwidgets>

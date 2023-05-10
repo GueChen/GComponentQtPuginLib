@@ -4,12 +4,14 @@
 
 #include <cmath>
 
+#include <iostream>
+
 DragEdit::DragEdit(QWidget *parent)
     : QLineEdit(parent)
 {
     setCursor(Qt::SizeVerCursor);
     setText  (QString::number(value_, 10, 2));
-    
+    setValidator(&validator_);
 }
 
 void DragEdit::SetValue(float val) {

@@ -40,8 +40,11 @@ find_package(Qt6 COMPONENTS				# QT Dependencies
 add_library (${TARGET_NAME}  SHARED ${UI_FILES} ${SOURCE_FILES} ${HEADER_FILES} ${QRC_FILES})
 
 #___________________ Copy File to Bin _______________________
-set_property(TARGET ${TARGET_NAME} PROPERTY CXX_STANDARD 20)
-set_property(TARGET ${TARGET_NAME} PROPERTY LINKER_LANGUAGE CXX)
+set_property(TARGET ${TARGET_NAME} PROPERTY 
+					CXX_STANDARD 20
+					LINKER_LANGUAGE CXX
+)
+
 #set_target_properties(${TARGET_NAME}
 #					  PROPERTIES LIBRARY_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:GSimulatorEditor>)
 if(TARGET GSimulatorEditor)
