@@ -10,6 +10,7 @@ CustomWidgets::CustomWidgets(QObject* parent):
 	widgets_.append(new ClickedEditPlugin  (this));
 	widgets_.append(new AcrInstrumentPlugin(this));
 	widgets_.append(new SwitchControlPlugin(this));
+	widgets_.append(new Vector3EditPlugin  (this));
 }
 
 QList<QDesignerCustomWidgetInterface*> CustomWidgets::customWidgets() const {
