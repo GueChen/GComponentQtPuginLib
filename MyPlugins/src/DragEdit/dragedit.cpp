@@ -1,6 +1,7 @@
 #include "DragEdit/drag_edit.h"
 
 #include <QtGui/QMouseEvent>
+#include <QtGui/QFocusEvent>
 
 #include <cmath>
 
@@ -10,16 +11,19 @@ DragEdit::DragEdit(QWidget *parent)
     : QLineEdit(parent)
 {
     setCursor(Qt::SizeVerCursor);
-    setText  (QString::number(value_, 10, 2));
-    setValidator(&validator_);
+    setText  (QString::number(value_, 10, 2));    
+    connect  (this, &DragEdit::editingFinished, 
+              this, &DragEdit::OnEditingFinished);
+    
 }
 
 void DragEdit::SetValue(float val) {
+    val = std::max(std::min(val, max_limit_), min_limit_);
     if (value_ != val) {
-        value_ = val;
+        value_ = val;        
         setText(QString::number(value_, 10, 2));
         emit ValueChanged(val);
-    }
+    }    
 }
 
 void DragEdit::mouseMoveEvent(QMouseEvent* event)
@@ -31,7 +35,7 @@ void DragEdit::mouseMoveEvent(QMouseEvent* event)
         last_pos_      = cur_pos;
 
         float new_value = value_ + step_ * (diff.x() - diff.y());
-        new_value       = std::max(std::min(new_value, max_limit_), min_limit_);
+        
         
         SetValue(new_value);        
 #ifdef _TRACKING_DBG
@@ -40,8 +44,7 @@ void DragEdit::mouseMoveEvent(QMouseEvent* event)
     }
 }
 
-void DragEdit::mousePressEvent(QMouseEvent* event)
-{
+void DragEdit::mousePressEvent(QMouseEvent* event){
     if (!is_draged_ && (event->buttons() & Qt::LeftButton)) {
         setMouseTracking(true);
         last_pos_  = event->pos();
@@ -53,14 +56,23 @@ void DragEdit::mousePressEvent(QMouseEvent* event)
     }
 }
 
-void DragEdit::mouseReleaseEvent(QMouseEvent* event)
-{    
-
+void DragEdit::mouseReleaseEvent(QMouseEvent* event){
     if (is_draged_ && !(event->buttons() & Qt::LeftButton)) {
         setMouseTracking(false);
         is_draged_ = false;
 #ifdef _TRACKING_DBG
         setText("un tracking...");
 #endif
+    }
+}
+
+void DragEdit::OnEditingFinished() {
+    bool   convert_ok = false;
+    double cur_value = text().toDouble(&convert_ok);
+    if (convert_ok) {
+        SetValue(cur_value);
+    }
+    else {
+        setText(QString::number(value_, 10, 2));
     }
 }

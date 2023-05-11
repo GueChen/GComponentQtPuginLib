@@ -16,16 +16,10 @@ public:
     explicit DragEdit(QWidget *parent = nullptr);
 
     inline float GetMinLimit() const          { return min_limit_; }
-    inline void  SetMinLimit(float min_limit) { 
-        min_limit_ = min_limit; 
-        validator_.setBottom(min_limit - 1e-5f);
-    }
+    inline void  SetMinLimit(float min_limit) { min_limit_ = min_limit; }
 
     inline float GetMaxLimit() const          { return max_limit_; }
-    inline void  SetMaxLimit(float max_limit) { 
-        max_limit_ = max_limit; 
-        validator_.setTop(max_limit + 1e-5f);
-    }
+    inline void  SetMaxLimit(float max_limit) { max_limit_ = max_limit; }
 
     inline float GetValue()    const          { return value_; }
     void         SetValue(float val);
@@ -37,10 +31,12 @@ protected:
     void mouseMoveEvent   (QMouseEvent* event) override;
     void mousePressEvent  (QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
+    
+    void OnEditingFinished();
 
 signals:
     void ValueChanged(float val);
-
+    
 private:
     float min_limit_ = 0.0f;
     float max_limit_ = 99.9f;
@@ -50,5 +46,4 @@ private:
     QPoint last_pos_  = QPoint(0, 0);
     bool   is_draged_ = false;
 
-    QDoubleValidator validator_;
 };
