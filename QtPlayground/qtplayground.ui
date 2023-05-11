@@ -234,9 +234,9 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>280</y>
+      <y>260</y>
       <width>251</width>
-      <height>45</height>
+      <height>61</height>
      </rect>
     </property>
    </widget>
