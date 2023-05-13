@@ -32,7 +32,7 @@ void Vector3Edit::SetValue(const QVector3D& value) {
 }
 
 void Vector3Edit::SetX(float val) {
-	if (val == vector_[0]) return;
+	if (val == vector_[0] || std::isnan(val)) return;
 	vector_[0] = val;
 
 	ui_ptr_->x->SetValue(val);
@@ -41,7 +41,7 @@ void Vector3Edit::SetX(float val) {
 }
 
 void Vector3Edit::SetY(float val) {
-	if (val == vector_[1]) return;
+	if (val == vector_[1] || std::isnan(val)) return;
 	vector_[1] = val;
 
 	ui_ptr_->y->SetValue(val);
@@ -50,7 +50,7 @@ void Vector3Edit::SetY(float val) {
 }
 
 void Vector3Edit::SetZ(float val) {
-	if (val == vector_[2]) return;
+	if (val == vector_[2] || std::isnan(val)) return;
 	vector_[2] = val;
 
 	ui_ptr_->z->SetValue(val);

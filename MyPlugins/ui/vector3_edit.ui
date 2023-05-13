@@ -131,7 +131,7 @@ border-radius: 3px;
 </string>
      </property>
      <property name="text">
-      <string>x</string>
+      <string>y</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignHCenter|Qt::AlignTop</set>
