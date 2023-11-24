@@ -9,6 +9,7 @@
 #include "AcrInstrument/acrinstrument_plugin.h"
 #include "SwitchControl/switch_control_plugin.h"
 #include "Vector3Edit/vector3_edit_plugin.h"
+#include "CollapsibleHeader/collapsible_header_plugin.h"
 
 #include <QtDesigner/QtDesigner>
 #include <QtCore/qplugin.h>

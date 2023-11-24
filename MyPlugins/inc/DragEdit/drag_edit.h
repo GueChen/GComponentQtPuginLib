@@ -41,7 +41,7 @@ private:
     float min_limit_ = 0.0f;
     float max_limit_ = 99.9f;
     float step_      = 0.5f;
-    float value_     = 50.0f;
+    float value_     = 0.0f;
 
     QPoint last_pos_  = QPoint(0, 0);
     bool   is_draged_ = false;
