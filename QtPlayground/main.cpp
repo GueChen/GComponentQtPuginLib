@@ -13,10 +13,7 @@ int main(int argc, char *argv[])
     w.show();
 
     CollapsibleHeader header;
-
-    for (int i = 0; i < 5; ++i) {
-       // header.insertItem(i, new QLineEdit("goodman"), QString::number(i) + QString("line"));
-    }
+    header.SetPageContent(new QLineEdit("This is Collapsible header"));
     header.show();
     return a.exec();
 }

@@ -36,8 +36,8 @@ QString CollapsibleHeaderPlugin::domXml() const
 		"  <rect>\n"
 		"   <x>0</x>\n"
 		"   <y>0</y>\n"
-		"   <width>50</width>\n"
-		"   <height>50</height>\n"
+		"   <width>100</width>\n"
+		"   <height>25</height>\n"
 		"  </rect>\n"
 		" </property>\n"
 		"</widget>\n";
