@@ -3,5 +3,9 @@
     <file alias="shader_icon">pictures/shader_item_icon.png</file>
     <file alias="cat">pictures/cat1.jpg</file>
     <file alias="color canvas">pictures/color_convas.png</file>
+    <file alias="vec edit">pictures/vector_edit.png</file>
+  </qresource>
+  <qresource prefix="ui_icon">
+    <file alias="collapse point">pictures/collapsing_header_expansing.png</file>
   </qresource>
 </RCC>

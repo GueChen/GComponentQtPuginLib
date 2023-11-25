@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QLineEdit>
+#include <QtGui/QDoubleValidator>
 #include <QtUiPlugin/QDesignerExportWidget>
 
 class QDESIGNER_WIDGET_EXPORT DragEdit : public QLineEdit
@@ -30,16 +31,19 @@ protected:
     void mouseMoveEvent   (QMouseEvent* event) override;
     void mousePressEvent  (QMouseEvent* event) override;
     void mouseReleaseEvent(QMouseEvent* event) override;
+    
+    void OnEditingFinished();
 
 signals:
     void ValueChanged(float val);
-
+    
 private:
     float min_limit_ = 0.0f;
     float max_limit_ = 99.9f;
     float step_      = 0.5f;
-    float value_     = 50.0f;
+    float value_     = 0.0f;
 
     QPoint last_pos_  = QPoint(0, 0);
     bool   is_draged_ = false;
+
 };

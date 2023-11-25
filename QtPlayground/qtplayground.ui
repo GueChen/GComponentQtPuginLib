@@ -14,7 +14,8 @@
    <string>QtPlayground</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(35, 35, 35);</string>
+   <string notr="true">background-color: rgb(35, 35, 35);
+color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="DragEdit" name="dragedit">
@@ -113,7 +114,7 @@ background-color: rgb(0, 0, 150);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="ColorCanvas" name="color_canvas" native="true">
+   <widget class="ColorCanvas" name="color_canvas">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -141,7 +142,7 @@ background-color: rgb(0, 0, 150);</string>
      </size>
     </property>
    </widget>
-   <widget class="ColorEdit" name="color_edit" native="true">
+   <widget class="ColorEdit" name="color_edit">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -151,7 +152,7 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
-   <widget class="GSelector" name="selector" native="true">
+   <widget class="GSelector" name="selector">
     <property name="geometry">
      <rect>
       <x>39</x>
@@ -161,7 +162,7 @@ background-color: rgb(0, 0, 150);</string>
      </rect>
     </property>
    </widget>
-   <widget class="ClickedEdit" name="clicked_edit" native="true">
+   <widget class="ClickedEdit" name="clicked_edit">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -174,8 +175,8 @@ background-color: rgb(0, 0, 150);</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>230</y>
+      <x>160</x>
+      <y>210</y>
       <width>211</width>
       <height>121</height>
      </rect>
@@ -201,7 +202,7 @@ background-color: rgb(0, 0, 150);</string>
      <property name="title">
       <string>GroupBox</string>
      </property>
-     <widget class="ClickedEdit" name="clicked_edit_2" native="true">
+     <widget class="ClickedEdit" name="clicked_edit_2">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -216,6 +217,66 @@ color: rgb(255, 255, 255);</string>
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="DragEdit" name="drag_edit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>220</y>
+      <width>50</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="Vector3Edit" name="vector3_edit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>251</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>70</y>
+      <width>211</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="CollapsibleHeader" name="widget" native="true"/>
+     </item>
+     <item>
+      <widget class="CollapsibleHeader" name="widget_2" native="true"/>
+     </item>
+     <item>
+      <widget class="CollapsibleHeader" name="widget_3" native="true"/>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>155</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -241,14 +302,14 @@ color: rgb(255, 255, 255);</string>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
+   <class>ColorCanvas</class>
+   <extends>QLabel</extends>
+   <header>custom/color_canvas.h</header>
+  </customwidget>
+  <customwidget>
    <class>DragEdit</class>
    <extends>QLineEdit</extends>
    <header>custom/drag_edit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ColorCanvas</class>
-   <extends>QWidget</extends>
-   <header>custom/color_canvas.h</header>
   </customwidget>
   <customwidget>
    <class>ColorEdit</class>
@@ -257,13 +318,24 @@ color: rgb(255, 255, 255);</string>
   </customwidget>
   <customwidget>
    <class>GSelector</class>
-   <extends>QWidget</extends>
+   <extends>QLineEdit</extends>
    <header>custom/selector.h</header>
   </customwidget>
   <customwidget>
    <class>ClickedEdit</class>
-   <extends>QWidget</extends>
+   <extends>QLineEdit</extends>
    <header>custom/clicked_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Vector3Edit</class>
+   <extends>QWidget</extends>
+   <header>custom/vector3_edit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>CollapsibleHeader</class>
+   <extends>QWidget</extends>
+   <header location="global">CollapsibleHeader/collapsible_header.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
