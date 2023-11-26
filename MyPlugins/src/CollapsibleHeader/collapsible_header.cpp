@@ -18,13 +18,7 @@ CollapsibleHeader::CollapsibleHeader(QWidget* parent) :
 	// header button
 	anim_group_ = new QParallelAnimationGroup(this);
 		
-	QPropertyAnimation* ctx_collapsing_anim = new QPropertyAnimation(ui_ptr_->widget, "maximumHeight");
-	ctx_collapsing_anim->setDuration(100);
-	anim_group_->addAnimation(ctx_collapsing_anim);
-	
-	QPropertyAnimation* collapsing_anim = new QPropertyAnimation(this, "maximumHeight");
-	collapsing_anim->setDuration(100);
-	anim_group_->addAnimation(collapsing_anim);
+	ResetAnimationBind();
 	
 	SetCollapsingAnimValue();
 
@@ -116,17 +110,19 @@ void CollapsibleHeader::ResetAnimationBind()
 	anim_group_->clear();
 
 	QPropertyAnimation* ctx_collapsing_anim = new QPropertyAnimation(ui_ptr_->widget, "maximumHeight");
-	ctx_collapsing_anim->setDuration(100);
+	ctx_collapsing_anim->setDuration(300);
+	//ctx_collapsing_anim->setEasingCurve(QEasingCurve::InOutQuint);
 	anim_group_->addAnimation(ctx_collapsing_anim);
 
 	QPropertyAnimation* collapsing_anim = new QPropertyAnimation(this, "maximumHeight");
-	collapsing_anim->setDuration(100);
+	collapsing_anim->setDuration(300);
+	//ctx_collapsing_anim->setEasingCurve(QEasingCurve::InOutQuint);
 	anim_group_->addAnimation(collapsing_anim);
 }
 
 void CollapsibleHeader::resizeEvent(QResizeEvent* event)
 {	
-	if (QWidget* pw = parentWidget()) {		
+	if (QWidget* pw = parentWidget(); pw && dynamic_cast<CollapsibleHeader*>(pw)) {		
 		const int32_t max_pheight = pw->maximumHeight();
 		const int32_t cur_pheight = pw->height();
 		const int32_t inc_height = event->size().height();
